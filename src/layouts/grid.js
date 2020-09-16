@@ -30,7 +30,7 @@ export default ({ bgColor, columns, headline, items }) => {
       {headline && (
         <Box maxW="40rem" dangerouslySetInnerHTML={{ __html: headline }} />
       )}
-      <Grid templateColumns={columnsArr} gap={20}>
+      <Grid templateColumns={columnsArr} gap={[10, "", "", 20]}>
         {items.map((item) => (
           <Box dangerouslySetInnerHTML={{ __html: item.content }} />
         ))}

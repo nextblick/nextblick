@@ -1,5 +1,6 @@
 import React from "react"
 
+import SEO from "../seo"
 import Hero from "../hero"
 import Layout from "../../components/layout"
 import Layouts from "../../layouts"
@@ -12,6 +13,7 @@ function DefaultPage({ data }) {
 
   return (
     <Layout>
+      <SEO title={title} />
       {featuredImage && (
         <Hero
           title={title}

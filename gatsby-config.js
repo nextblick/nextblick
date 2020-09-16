@@ -14,6 +14,7 @@ module.exports = {
     author: `Marvin Bernd`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -25,8 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url:
-          process.env.WPGRAPHQL_URL || `http://mbmco-v2-wordpress.test/graphql`,
+        url: process.env.WPGRAPHQL_URL || `https://wordpress.mbmco.de/graphql`,
         verbose: true,
         develop: {
           hardCacheMediaFiles: true,
@@ -53,10 +53,11 @@ module.exports = {
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [`nunito sans\:200,600`],
-        display: "swap",
+        google: {
+          families: ["Nunito Sans:200,600"],
+        },
       },
     },
     {

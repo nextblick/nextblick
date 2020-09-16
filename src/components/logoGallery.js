@@ -21,8 +21,9 @@ const LogoGallery = ({ items }) => {
             alt={item.altText}
             src={item.localFile.publicURL}
             css={css`
-              max-height: 150px;
-              max-width: 250px;
+              width: 100%;
+              max-height: 120px;
+              max-width: 200px;
             `}
           />
         </Flex>

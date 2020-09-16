@@ -24,6 +24,7 @@ export default ({ bgColor, headline, images }) => {
         breakpoint: 767,
         settings: {
           variableWidth: false,
+          centerMode: false,
         },
       },
     ],
@@ -62,8 +63,9 @@ export default ({ bgColor, headline, images }) => {
 }
 
 const SliderItem = styled.div`
-  margin: 0 2rem;
+  width: 100vw !important;
   @media screen and (min-width: 768px) {
     width: 960px !important;
+    margin: 0 2rem;
   }
 `

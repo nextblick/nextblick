@@ -90,11 +90,15 @@ export default ({ isMenuOpen }) => {
                   <Link
                     key={i + menuItem.url}
                     css={css`
-                      font-size: 3rem;
+                      font-size: 2rem;
                       display: block;
-                      margin-bottom: 1.2rem;
+                      margin-bottom: 0.6rem;
                       &[aria-current="page"] {
                         font-weight: bold;
+                      }
+                      @media screen and (min-width: 768px) {
+                        font-size: 3rem;
+                        margin-bottom: 1.2rem;
                       }
                     `}
                     to={normalizePath(path)}
@@ -121,6 +125,10 @@ const Wrapper = styled.div`
   background: #fff;
   padding: 8rem 0;
   p {
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 2rem;
+    }
   }
 `

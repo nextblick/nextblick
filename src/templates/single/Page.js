@@ -69,8 +69,8 @@ export const query = graphql`
             image {
               localFile {
                 childImageSharp {
-                  fluid(maxHeight: 800, quality: 90, cropFocus: CENTER) {
-                    ...GatsbyImageSharpFluid_tracedSVG
+                  fixed(height: 600, quality: 90, cropFocus: CENTER) {
+                    ...GatsbyImageSharpFixed_tracedSVG
                   }
                 }
               }

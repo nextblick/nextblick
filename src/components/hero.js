@@ -34,7 +34,7 @@ const Content = styled.div`
 
 const Hero = styled.div`
   width: 100%;
-  height: 800px;
+  height: 100vh;
   overflow: hidden;
   position: relative;
   &::before {
@@ -47,6 +47,9 @@ const Hero = styled.div`
     background: #040c26;
     opacity: 0.45;
     z-index: 1;
+  }
+  @media screen and (min-width: 768px) {
+    height: 800px;
   }
 `
 

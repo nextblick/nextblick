@@ -4,6 +4,7 @@ import { Grid } from "@chakra-ui/core"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Section from "../components/section"
 import Hero from "../components/hero"
@@ -17,6 +18,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
+      <SEO title={title} />
       <Hero
         title={title}
         image={featuredImage.node.remoteFile.childImageSharp.fluid}
