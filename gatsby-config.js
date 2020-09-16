@@ -8,6 +8,11 @@ require("dotenv").config({
 })
 
 module.exports = {
+  siteMetadata: {
+    title: `MBM&CO`,
+    description: ``,
+    author: `Marvin Bernd`,
+  },
   plugins: [
     `gatsby-plugin-sharp`,
     {
@@ -21,8 +26,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         url:
-          process.env.WPGRAPHQL_URL ||
-          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+          process.env.WPGRAPHQL_URL || `http://mbmco-v2-wordpress.test/graphql`,
         verbose: true,
         develop: {
           hardCacheMediaFiles: true,
@@ -32,6 +36,7 @@ module.exports = {
             writeQueriesToDisk: true,
           },
         },
+        useACF: true,
         type: {
           Post: {
             limit:
@@ -44,8 +49,16 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`nunito sans\:200,600`],
+        display: "swap",
+      },
+    },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

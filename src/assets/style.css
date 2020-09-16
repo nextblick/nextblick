@@ -22,3 +22,7 @@
 .pagination .previous {
   justify-self: start;
 }
+
+h1 {
+  font-size: 3rem;
+}

@@ -1,24 +1,88 @@
 import React from "react"
-import { Heading, Box, Grid } from "@chakra-ui/core"
 import { Link } from "gatsby"
-import GatsbyLogo from "../assets/svg/gatsby.inline.svg"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 
-export default () => (
-  <Heading as="h1">
-    <Link to="/">
-      <Grid gridTemplateColumns="50px 1fr" gridGap="20px">
-        <Box maxW={50}>
-          <GatsbyLogo />
-        </Box>
-        <span
-          style={{
-            transform: `translateY(5px)`,
-            display: `inline-block`,
-          }}
-        >
-          Gatsby Source WordPress V4 demo
-        </span>
-      </Grid>
-    </Link>
-  </Heading>
+import Container from "./container"
+import Logo from "../assets/svg/mbmco-blue-2.inline.svg"
+
+export default ({ isMenuOpen, handleMenuButtonToggle }) => (
+  <Header
+    css={
+      isMenuOpen &&
+      css`
+        color: #000;
+      `
+    }
+  >
+    <Container>
+      <Flex>
+        <div>
+          <Link to="/">
+            <Logo
+              css={css`
+                width: 120px;
+              `}
+            />
+          </Link>
+        </div>
+        <div>
+          <MenuButton
+            css={
+              isMenuOpen &&
+              css`
+                &:before,
+                &:after {
+                  background-color: #000;
+                }
+                &:before {
+                  top: 6px;
+                  transform: rotate(-45deg);
+                }
+                &:after {
+                  top: 6px;
+                  transform: rotate(45deg);
+                }
+              `
+            }
+            onClick={handleMenuButtonToggle}
+          />
+        </div>
+      </Flex>
+    </Container>
+  </Header>
 )
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+const Header = styled.header`
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  padding: 2rem 0;
+  color: #fff;
+`
+const MenuButton = styled.div`
+  width: 37px;
+  height: 16px;
+  position: relative;
+  cursor: pointer;
+  &:before, &:after {
+    content '';
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    top: 12px;
+  }
+`
