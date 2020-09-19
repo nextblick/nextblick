@@ -19,11 +19,7 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
       <Flex>
         <div>
           <Link to="/">
-            <Logo
-              css={css`
-                width: 120px;
-              `}
-            />
+            <strong>MBM</strong>NEXT
           </Link>
         </div>
         <div>

@@ -14,13 +14,14 @@ import PostCarousel from "../components/postCarousel"
 
 export default function Home({ data }) {
   const { wpPage: page } = data
-  const { title, featuredImage, acfFrontPageFields: fields } = page
+  const { title, excerpt, featuredImage, acfFrontPageFields: fields } = page
 
   return (
     <Layout>
       <SEO title={title} />
       <Hero
         title={title}
+        excerpt={excerpt}
         image={featuredImage.node.remoteFile.childImageSharp.fluid}
       />
       <Section bg="primary" align="right" small="full">
@@ -71,20 +72,23 @@ export default function Home({ data }) {
         />
         <LogoGallery items={fields.stack} />
       </Section>
-      <Section align="right">
+      {/*<Section align="right">
         <div
           className="intro"
-          dangerouslySetInnerHTML={{ __html: fields.stackHeadline }}
+          dangerouslySetInnerHTML={{ __html: fields.journalHeadline }}
         />
         <PostCarousel items={data.allWpPost.nodes} />
-      </Section>
+      </Section>*/}
     </Layout>
   )
 }
 
 const ServiceItem = styled.div`
+  padding-bottom: 4rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   & > ul {
     list-style: none;
+    padding-bottom: 1rem;
     li {
       margin-bottom: 1rem;
     }
@@ -99,7 +103,6 @@ export const pageQuery = graphql`
     allWpPost(sort: { fields: [date] }) {
       nodes {
         title
-        excerpt
         slug
         featuredImage {
           node {
@@ -132,6 +135,7 @@ export const pageQuery = graphql`
     }
     wpPage(isFrontPage: { eq: true }) {
       title
+      excerpt
       featuredImage {
         node {
           remoteFile {
@@ -156,6 +160,7 @@ export const pageQuery = graphql`
             publicURL
           }
         }
+        journalHeadline
       }
     }
   }

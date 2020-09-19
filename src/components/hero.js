@@ -1,26 +1,37 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Box } from "@chakra-ui/core"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Container from "./container"
+import colors from "../config/colors"
 
-export default ({ image, title }) => (
-  <Hero>
-    {image && <Image fluid={image} />}
-    <Content>
+export default ({ excerpt, image, title }) => {
+  if (image) {
+    return (
+      <Hero>
+        <Image fluid={image} />
+        <Content>
+          <Container>
+            <Box maxW="60rem">
+              <h1>{title}</h1>
+              <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+            </Box>
+          </Container>
+        </Content>
+      </Hero>
+    )
+  }
+  return (
+    <HeroWithoutImage>
       <Container>
-        <Box maxW="60rem">
-          <h1>{title}</h1>
-          <p>
-            With the power of modern web technologies we help you to maximize
-            your business potential and reaching new customers.
-          </p>
-        </Box>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
       </Container>
-    </Content>
-  </Hero>
-)
+    </HeroWithoutImage>
+  )
+}
 
 const Content = styled.div`
   position: absolute;
@@ -51,6 +62,12 @@ const Hero = styled.div`
   @media screen and (min-width: 768px) {
     height: 800px;
   }
+`
+
+const HeroWithoutImage = styled.div`
+  background: ${colors.primary};
+  color: ${colors.white};
+  padding-top: 8rem;
 `
 
 const Image = styled(Img)`

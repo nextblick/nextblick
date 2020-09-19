@@ -3,6 +3,7 @@ import React from "react"
 import Grid from "./grid"
 import ImageCarousel from "./imageCarousel"
 import Team from "./team"
+import Text from "./text"
 import TextImage from "./textImage"
 
 export default ({ layoutData }) => {
@@ -21,6 +22,7 @@ export default ({ layoutData }) => {
     page_Acfdefaultpagefields_Layouts_ImageCarousel: ImageCarousel,
     page_Acfdefaultpagefields_Layouts_Team: Team,
     page_Acfdefaultpagefields_Layouts_TextImage: TextImage,
+    page_Acfdefaultpagefields_Layouts_Text: Text,
     page_default: Default,
   }
 

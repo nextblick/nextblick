@@ -129,6 +129,7 @@ const Wrapper = styled.div`
     margin-bottom: 0;
     @media screen and (min-width: 768px) {
       margin-bottom: 2rem;
+      font-size: 1rem;
     }
   }
 `

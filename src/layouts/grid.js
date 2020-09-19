@@ -28,7 +28,7 @@ export default ({ bgColor, columns, headline, items }) => {
   return (
     <Section bg={bgColor}>
       {headline && (
-        <Box maxW="40rem" dangerouslySetInnerHTML={{ __html: headline }} />
+        <Box maxW="60rem" dangerouslySetInnerHTML={{ __html: headline }} />
       )}
       <Grid templateColumns={columnsArr} gap={[10, "", "", 20]}>
         {items.map((item) => (

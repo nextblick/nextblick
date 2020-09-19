@@ -69,6 +69,38 @@ const Layout = ({ children }) => {
             max-width: 960px;
             margin-bottom: 2rem;
           }
+          .button {
+            border: 2px solid #818592;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            &:focus, &:hover {
+              border-color #fff;
+              color: #000;
+              a {
+                position: relative;
+                z-index: 1;
+              }
+              &::after {
+                height: 100%;
+              }
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 0;
+              width: 100%;
+              background-color: #fff;
+              transition: all 0.3s ease-in-out;
+              z-index: 0;
+            }
+          }
         `}
       />
       <Header

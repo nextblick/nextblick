@@ -11,6 +11,7 @@ export const query = graphql`
   query page($id: String!, $nextPage: String, $previousPage: String) {
     page: wpPage(id: { eq: $id }) {
       title
+      excerpt
       content
       featuredImage {
         node {
@@ -75,6 +76,11 @@ export const query = graphql`
                 }
               }
             }
+          }
+          ... on WpPage_Acfdefaultpagefields_Layouts_Text {
+            fieldGroupName
+            bgColor
+            text
           }
         }
       }

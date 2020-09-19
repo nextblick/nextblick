@@ -7,19 +7,20 @@ import Layouts from "../../layouts"
 
 function DefaultPage({ data }) {
   const { page } = data
-  const { title, featuredImage, acfDefaultPageFields } = page
+  const { acfDefaultPageFields, excerpt, featuredImage, title } = page
 
   const layouts = acfDefaultPageFields.layouts || []
 
   return (
     <Layout>
       <SEO title={title} />
-      {featuredImage && (
-        <Hero
-          title={title}
-          image={featuredImage.node.remoteFile.childImageSharp.fluid}
-        />
-      )}
+      <Hero
+        title={title}
+        excerpt={excerpt}
+        image={
+          featuredImage && featuredImage.node.remoteFile.childImageSharp.fluid
+        }
+      />
       {layouts.map((layout, index) => (
         <Layouts key={index} layoutData={layout} />
       ))}
