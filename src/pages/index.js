@@ -61,11 +61,7 @@ export default function Home({ data }) {
           ))}
         </Grid>
       </Section>
-      <Section
-        css={css`
-          padding-bottom: 0;
-        `}
-      >
+      <Section>
         <div
           className="intro"
           dangerouslySetInnerHTML={{ __html: fields.stackHeadline }}

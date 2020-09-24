@@ -22,7 +22,7 @@ const LogoGallery = ({ items }) => {
             src={item.localFile.publicURL}
             css={css`
               width: 100%;
-              max-height: 120px;
+              max-height: 100px;
               max-width: 200px;
             `}
           />
