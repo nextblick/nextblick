@@ -8,8 +8,15 @@ import { normalizePath } from "../utils/get-url-path"
 import Container from "./container"
 
 export default ({ isMenuOpen }) => {
-  const { wpMenu } = useStaticQuery(graphql`
+  const { wp, wpMenu } = useStaticQuery(graphql`
     {
+      wp {
+        themeMenuSettings {
+          acfOptionsMenuFields {
+            menuContent
+          }
+        }
+      }
       wpMenu(slug: { eq: "main-menu" }) {
         name
         menuItems {
@@ -49,33 +56,11 @@ export default ({ isMenuOpen }) => {
       <Container>
         <Flex flexDirection={["column-reverse", "", "row"]}>
           <Box w={["100%", "", "50%"]}>
-            <p>
-              <strong>Email</strong>
-              <br />
-              hello@mbmco.de
-            </p>
-            <p>
-              <strong>Phone</strong>
-              <br />
-              +49 1520 6049110
-            </p>
-            <p>
-              <strong>Address</strong>
-              <br />
-              <address>
-                MBM&amp;CO Digital Agency
-                <br />
-                Taunusanlage 8<br />
-                60329 Frankfurt am Main
-                <br />
-                HE, Deutschland
-              </address>
-            </p>
-            <p>
-              Impressum
-              <br />
-              Datenschutz
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: wp.themeMenuSettings.acfOptionsMenuFields.menuContent,
+              }}
+            />
           </Box>
           <Box>
             <Menu>

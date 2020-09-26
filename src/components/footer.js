@@ -6,6 +6,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Section from "../components/section"
+import MetaMenu from "./metaMenu"
 
 export default () => {
   return (
@@ -58,9 +59,7 @@ export default () => {
                   }}
                 />
                 <div>
-                  Impressum
-                  <br />
-                  Datenschutz
+                  <MetaMenu />
                 </div>
               </Flex>
               <Image
