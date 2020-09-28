@@ -29,9 +29,13 @@ export default function Home({ data }) {
           items={data.allWpProject.nodes}
           css={css`
             position: relative;
-            transform: translateY(-12rem);
-            margin-bottom: -12rem;
+            transform: translateY(-6rem);
+            margin-bottom: -6rem;
             z-index: 1;
+            @media screen and (min-width: 768px) {
+              transform: translateY(-12rem);
+              margin-bottom: -12rem;
+            }
           `}
         />
       </Section>

@@ -40,7 +40,7 @@ export default ({ bgColor, text, image, imagePosition }) => {
                 `
           }
         >
-          {image && <Image fixed={image.localFile.childImageSharp.fixed} />}
+          {image && <Image fluid={image.localFile.childImageSharp.fluid} />}
         </Box>
       </Flex>
     </Section>

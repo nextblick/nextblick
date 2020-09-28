@@ -33,14 +33,20 @@ const Layout = ({ children }) => {
             font-size: 20px;
             font-family: "Nunito Sans", sans-serif;
           }
-          h1 {
+          h1, h2.large {
             font-size: 3.25rem;
             font-weight: bold;
             line-height: 1.3;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             @media screen and (min-width: 768px) {
               font-size: 3.75rem;
               margin-bottom: 0;
+            }
+            &.small {
+              font-size: 1.2rem;
+              text-transform: uppercase;
+              margin-bottom: 0.5rem;
+              opacity: 0.8;
             }
           }
           h2 {

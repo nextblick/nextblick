@@ -21,6 +21,7 @@ export const query = graphql`
         }
       }
       acfDefaultPageFields {
+        subtitle
         layouts {
           ... on WpPage_Acfdefaultpagefields_Layouts_Grid {
             fieldGroupName
@@ -70,8 +71,12 @@ export const query = graphql`
             image {
               localFile {
                 childImageSharp {
-                  fixed(height: 600, quality: 90, cropFocus: CENTER) {
-                    ...GatsbyImageSharpFixed_tracedSVG
+                  fluid(
+                    maxHeight: 600
+                    quality: 90
+                    srcSetBreakpoints: [480, 768, 1280]
+                  ) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

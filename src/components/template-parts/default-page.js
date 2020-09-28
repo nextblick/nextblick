@@ -16,6 +16,7 @@ function DefaultPage({ data }) {
       <SEO title={title} />
       <Hero
         title={title}
+        subtitle={acfDefaultPageFields.subtitle}
         excerpt={excerpt}
         image={
           featuredImage && featuredImage.node.remoteFile.childImageSharp.fluid

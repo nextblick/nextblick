@@ -7,7 +7,7 @@ import styled from "@emotion/styled"
 import Container from "./container"
 import colors from "../config/colors"
 
-export default ({ excerpt, image, title }) => {
+export default ({ excerpt, image, title, subtitle }) => {
   if (image) {
     return (
       <Hero>
@@ -15,7 +15,17 @@ export default ({ excerpt, image, title }) => {
         <Content>
           <Container>
             <Box maxW="60rem">
-              <h1>{title}</h1>
+              {subtitle && (
+                <div>
+                  <h1 className="small">{title}</h1>
+                  <h2 className="large">{subtitle}</h2>
+                </div>
+              )}
+              {!subtitle && (
+                <div>
+                  <h1>{title}</h1>
+                </div>
+              )}
               <div dangerouslySetInnerHTML={{ __html: excerpt }} />
             </Box>
           </Container>
@@ -26,7 +36,17 @@ export default ({ excerpt, image, title }) => {
   return (
     <HeroWithoutImage>
       <Container>
-        <h1>{title}</h1>
+        {subtitle && (
+          <div>
+            <h1 className="small">{title}</h1>
+            <h2 className="large">{subtitle}</h2>
+          </div>
+        )}
+        {!subtitle && (
+          <div>
+            <h1>{title}</h1>
+          </div>
+        )}
         <div dangerouslySetInnerHTML={{ __html: excerpt }} />
       </Container>
     </HeroWithoutImage>
