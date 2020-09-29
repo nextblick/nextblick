@@ -32,10 +32,11 @@ const Layout = ({ children }) => {
           body {
             font-size: 20px;
             font-family: "Nunito Sans", sans-serif;
+            font-weight: 200;
           }
           h1, h2.large {
             font-size: 3.25rem;
-            font-weight: bold;
+            font-weight: 600;
             line-height: 1.3;
             margin-bottom: 1rem;
             @media screen and (min-width: 768px) {
@@ -58,7 +59,7 @@ const Layout = ({ children }) => {
           }
           h3 {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 1rem;
           }
           p {
@@ -79,7 +80,7 @@ const Layout = ({ children }) => {
             border: 2px solid #818592;
             padding: 0.5rem 1.5rem;
             font-size: 0.9rem;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
             transition: all 0.3s ease-in-out;
             position: relative;

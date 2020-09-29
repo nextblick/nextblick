@@ -16347,6 +16347,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-nunito-sans@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-nunito-sans/-/typeface-nunito-sans-0.0.72.tgz#c99198a8d62ebdda0399dbe8cd81586a0976a01c"
+  integrity sha512-b58R4movZchZJNe5pWvqMVoJzKRs7GP09iIri4WWQOs9+G+yjoTSIpOUMU2xtLmxuyXUo1F8XhnOHY06kSDhuQ==
+
 unbzip2-stream@^1.0.9:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/unbzip2-stream/-/unbzip2-stream-1.3.3.tgz#d156d205e670d8d8c393e1c02ebd506422873f6a"

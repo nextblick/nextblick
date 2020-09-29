@@ -150,8 +150,12 @@ export const pageQuery = graphql`
         slug
         featuredImage {
           node {
-            remoteFile {
-              ...HeroImage
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
             }
           }
         }

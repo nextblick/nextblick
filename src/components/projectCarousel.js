@@ -47,7 +47,7 @@ const ProjectCarousel = ({ items, ...props }) => {
       {items.map(({ featuredImage, title, id }) => (
         <ProjectItem key={id}>
           {featuredImage && (
-            <Img fluid={featuredImage.node.remoteFile.childImageSharp.fluid} />
+            <Img fluid={featuredImage.node.localFile.childImageSharp.fluid} />
           )}
           <Overlay>
             <Content>

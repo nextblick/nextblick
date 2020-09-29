@@ -44,6 +44,7 @@
     "react-paginate": "^6.3.2",
     "react-slick": "^0.27.11",
     "slick-carousel": "^1.8.1",
+    "typeface-nunito-sans": "^0.0.72",
     "yarn": "^1.22.4"
   },
   "devDependencies": {

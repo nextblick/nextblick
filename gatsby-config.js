@@ -53,14 +53,6 @@ module.exports = {
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Nunito Sans:200,600&display=swap"],
-        },
-      },
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
