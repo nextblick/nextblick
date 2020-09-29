@@ -15,8 +15,12 @@ export const query = graphql`
       content
       featuredImage {
         node {
-          remoteFile {
-            ...HeroImage
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 90, cropFocus: CENTER) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
           }
         }
       }

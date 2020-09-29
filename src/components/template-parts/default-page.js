@@ -19,7 +19,7 @@ function DefaultPage({ data }) {
         subtitle={acfDefaultPageFields.subtitle}
         excerpt={excerpt}
         image={
-          featuredImage && featuredImage.node.remoteFile.childImageSharp.fluid
+          featuredImage && featuredImage.node.localFile.childImageSharp.fluid
         }
       />
       {layouts.map((layout, index) => (

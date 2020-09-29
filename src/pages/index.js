@@ -13,16 +13,22 @@ import ProjectCarousel from "../components/projectCarousel"
 import PostCarousel from "../components/postCarousel"
 
 export default function Home({ data }) {
-  const { wpPage: page } = data
-  const { title, excerpt, featuredImage, acfFrontPageFields: fields } = page
+  const {
+    title,
+    excerpt,
+    featuredImage,
+    acfDefaultPageFields,
+    acfFrontPageFields: fields,
+  } = data.wpPage
 
   return (
     <Layout>
       <SEO title={title} />
       <Hero
         title={title}
+        subtitle={acfDefaultPageFields.subtitle}
         excerpt={excerpt}
-        image={featuredImage.node.remoteFile.childImageSharp.fluid}
+        image={featuredImage.node.localFile.childImageSharp.fluid}
       />
       <Section bg="primary" align="right" small="full">
         <ProjectCarousel
@@ -153,7 +159,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 fluid(maxWidth: 800, quality: 90, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
@@ -166,10 +172,17 @@ export const pageQuery = graphql`
       excerpt
       featuredImage {
         node {
-          remoteFile {
-            ...HeroImage
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 90, cropFocus: CENTER) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
           }
         }
+      }
+      acfDefaultPageFields {
+        subtitle
       }
       acfFrontPageFields {
         clientsHeadline
