@@ -14,7 +14,7 @@ export default ({ excerpt, image, title, subtitle }) => {
         <Image fluid={image} />
         <Content>
           <Container>
-            <Box maxW="60rem">
+            <Box maxW="60rem" data-sal="slide-up" data-sal-duration="1200">
               {subtitle && (
                 <div>
                   <h1 className="small">{title}</h1>
@@ -36,18 +36,20 @@ export default ({ excerpt, image, title, subtitle }) => {
   return (
     <HeroWithoutImage>
       <Container>
-        {subtitle && (
-          <div>
-            <h1 className="small">{title}</h1>
-            <h2 className="large">{subtitle}</h2>
-          </div>
-        )}
-        {!subtitle && (
-          <div>
-            <h1>{title}</h1>
-          </div>
-        )}
-        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <Box data-sal="slide-up" data-sal-duration="1200">
+          {subtitle && (
+            <div>
+              <h1 className="small">{title}</h1>
+              <h2 className="large">{subtitle}</h2>
+            </div>
+          )}
+          {!subtitle && (
+            <div>
+              <h1>{title}</h1>
+            </div>
+          )}
+          <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+        </Box>
       </Container>
     </HeroWithoutImage>
   )

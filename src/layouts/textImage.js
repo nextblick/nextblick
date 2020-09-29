@@ -14,35 +14,37 @@ export default ({ bgColor, text, image, imagePosition }) => {
         overflow: hidden;
       `}
     >
-      <Flex
-        flexDirection={[
-          "column-reverse",
-          "",
-          "",
-          "",
-          imagePosition === "right" ? "row" : "row-reverse",
-        ]}
-      >
-        <Box dangerouslySetInnerHTML={{ __html: text }} maxW="500px" />
-        <Box
-          w="100%"
-          css={
-            imagePosition === "right"
-              ? css`
-                  @media screen and (min-width: 1280px) {
-                    margin-left: 4rem;
-                  }
-                `
-              : css`
-                  @media screen and (min-width: 1280px) {
-                    margin-right: 4rem;
-                  }
-                `
-          }
+      <div data-sal="slide-up" data-sal-duration="1200">
+        <Flex
+          flexDirection={[
+            "column-reverse",
+            "",
+            "",
+            "",
+            imagePosition === "right" ? "row" : "row-reverse",
+          ]}
         >
-          {image && <Image fluid={image.localFile.childImageSharp.fluid} />}
-        </Box>
-      </Flex>
+          <Box dangerouslySetInnerHTML={{ __html: text }} maxW="500px" />
+          <Box
+            w="100%"
+            css={
+              imagePosition === "right"
+                ? css`
+                    @media screen and (min-width: 1280px) {
+                      margin-left: 4rem;
+                    }
+                  `
+                : css`
+                    @media screen and (min-width: 1280px) {
+                      margin-right: 4rem;
+                    }
+                  `
+            }
+          >
+            {image && <Image fluid={image.localFile.childImageSharp.fluid} />}
+          </Box>
+        </Flex>
+      </div>
     </Section>
   )
 }

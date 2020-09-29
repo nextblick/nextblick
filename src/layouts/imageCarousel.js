@@ -32,32 +32,34 @@ export default ({ bgColor, headline, images }) => {
 
   return (
     <Section bg={bgColor} full>
-      {headline && (
-        <Box maxW="40rem" dangerouslySetInnerHTML={{ __html: headline }} />
-      )}
-      <Slider
-        css={css`
-          overflow: hidden;
-          .slick-arrow {
-            width: 64px;
-            height: 64px;
-            background: #040c26;
-            opacity: 0.5;
-            color: #fff;
-            padding: 1rem;
-            &.slick-next {
-              right: 0;
+      <div data-sal="slide-up" data-sal-duration="1200">
+        {headline && (
+          <Box maxW="40rem" dangerouslySetInnerHTML={{ __html: headline }} />
+        )}
+        <Slider
+          css={css`
+            overflow: hidden;
+            .slick-arrow {
+              width: 64px;
+              height: 64px;
+              background: #040c26;
+              opacity: 0.5;
+              color: #fff;
+              padding: 1rem;
+              &.slick-next {
+                right: 0;
+              }
             }
-          }
-        `}
-        {...settings}
-      >
-        {images.map(({ localFile: { childImageSharp } }) => (
-          <SliderItem>
-            <Img fluid={childImageSharp.fluid} />
-          </SliderItem>
-        ))}
-      </Slider>
+          `}
+          {...settings}
+        >
+          {images.map(({ localFile: { childImageSharp } }) => (
+            <SliderItem>
+              <Img fluid={childImageSharp.fluid} />
+            </SliderItem>
+          ))}
+        </Slider>
+      </div>
     </Section>
   )
 }

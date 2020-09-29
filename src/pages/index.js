@@ -43,11 +43,22 @@ export default function Home({ data }) {
         <div
           className="intro"
           dangerouslySetInnerHTML={{ __html: fields.clientsHeadline }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
         />
-        <LogoGallery items={fields.clients} />
+        <LogoGallery
+          items={fields.clients}
+          sal="slide-up"
+          salDuration="1200"
+          salDelay={100}
+        />
       </Section>
       <Section bg="primary">
-        <div dangerouslySetInnerHTML={{ __html: fields.servicesHeadline }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: fields.servicesHeadline }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
+        />
         <Grid
           templateColumns={[
             "repeat(1, 1fr)",
@@ -58,10 +69,16 @@ export default function Home({ data }) {
           gap="4rem"
         >
           {fields.services.map((service, index) => (
-            <ServiceItem
-              key={index}
-              dangerouslySetInnerHTML={{ __html: service.content }}
-            />
+            <div
+              data-sal="slide-up"
+              data-sal-duration="1200"
+              data-sal-delay={index * 100}
+            >
+              <ServiceItem
+                key={index}
+                dangerouslySetInnerHTML={{ __html: service.content }}
+              />
+            </div>
           ))}
         </Grid>
       </Section>
@@ -69,8 +86,15 @@ export default function Home({ data }) {
         <div
           className="intro"
           dangerouslySetInnerHTML={{ __html: fields.stackHeadline }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
         />
-        <LogoGallery items={fields.stack} />
+        <LogoGallery
+          items={fields.stack}
+          sal="slide-up"
+          salDuration="1200"
+          salDelay={100}
+        />
       </Section>
       {/*<Section align="right">
         <div

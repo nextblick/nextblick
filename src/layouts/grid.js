@@ -28,11 +28,18 @@ export default ({ bgColor, columns, headline, items }) => {
   return (
     <Section bg={bgColor}>
       {headline && (
-        <Box maxW="60rem" dangerouslySetInnerHTML={{ __html: headline }} />
+        <div data-sal="slide-up" data-sal-duration="1200">
+          <Box maxW="60rem" dangerouslySetInnerHTML={{ __html: headline }} />
+        </div>
       )}
       <Grid templateColumns={columnsArr} gap={[10, "", "", 20]}>
-        {items.map((item) => (
-          <Box dangerouslySetInnerHTML={{ __html: item.content }} />
+        {items.map((item, index) => (
+          <Box
+            dangerouslySetInnerHTML={{ __html: item.content }}
+            data-sal="slide-up"
+            data-sal-duration="1200"
+            data-sal-delay={index * 100}
+          />
         ))}
       </Grid>
     </Section>

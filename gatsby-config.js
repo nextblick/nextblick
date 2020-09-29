@@ -56,7 +56,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Nunito Sans:200,600"],
+          families: ["Nunito Sans:200,600&display=swap"],
         },
       },
     },
@@ -66,6 +66,12 @@ module.exports = {
         rule: {
           include: /\.inline\.svg$/, // See below to configure properly
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
       },
     },
     `gatsby-plugin-netlify-cache`,

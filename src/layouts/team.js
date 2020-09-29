@@ -9,7 +9,12 @@ export default ({ bgColor, headline, items }) => {
   return (
     <Section bg={bgColor}>
       {headline && (
-        <Box maxW="40rem" dangerouslySetInnerHTML={{ __html: headline }} />
+        <Box
+          maxW="40rem"
+          dangerouslySetInnerHTML={{ __html: headline }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
+        />
       )}
       <Grid
         templateColumns={[
@@ -20,8 +25,12 @@ export default ({ bgColor, headline, items }) => {
         ]}
         gap={10}
       >
-        {items.map(({ image, description }) => (
-          <Box>
+        {items.map(({ image, description, index }) => (
+          <Box
+            data-sal="slide-up"
+            data-sal-duration="1200"
+            data-sal-delay={index * 100}
+          >
             <Image fluid={image.localFile.childImageSharp.fluid} />
             <Description dangerouslySetInnerHTML={{ __html: description }} />
           </Box>
