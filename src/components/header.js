@@ -19,7 +19,7 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
       <Flex>
         <div>
           <Link to="/">
-            <strong>MBM</strong>NEXT
+            <strong>NEXT</strong>BLICK
           </Link>
         </div>
         <div>

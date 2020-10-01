@@ -1,11 +1,11 @@
 {
-  "name": "using-gatsby-source-wordpress-experimental",
-  "description": "Gatsby example site using gatsby-source-wordpress@next",
+  "name": "nextblick",
+  "description": "NEXTBLICK Gatsby Website",
   "license": "MIT",
   "version": "0.0.1",
   "author": {
-    "name": "Tyler",
-    "email": "tyler@gatsbyjs.com"
+    "name": "NEXTBLICK",
+    "email": "hello@nextblick.com"
   },
   "scripts": {
     "develop": "gatsby develop",
