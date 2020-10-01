@@ -3,6 +3,15 @@ const path = require(`path`)
 const glob = require(`glob`)
 const chunk = require(`lodash/chunk`)
 const { dd } = require(`dumper.js`)
+const fs = require("fs")
+
+exports.onPostBuild = () => {
+  fs.copyFile(`./firebase.json`, `./public/firebase.json`, (err) => {
+    if (err) {
+      throw err
+    }
+  })
+}
 
 const getTemplates = () => {
   const sitePath = path.resolve(`./`)
