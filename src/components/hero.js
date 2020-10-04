@@ -26,7 +26,7 @@ export default ({ excerpt, image, title, subtitle }) => {
                   <h1>{title}</h1>
                 </div>
               )}
-              <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+              <Text dangerouslySetInnerHTML={{ __html: excerpt }} />
             </Box>
           </Container>
         </Content>
@@ -48,7 +48,7 @@ export default ({ excerpt, image, title, subtitle }) => {
               <h1>{title}</h1>
             </div>
           )}
-          <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+          <Text dangerouslySetInnerHTML={{ __html: excerpt }} />
         </Box>
       </Container>
     </HeroWithoutImage>
@@ -96,4 +96,9 @@ const Image = styled(Img)`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`
+
+const Text = styled.div`
+  font-size: 1.4rem;
+  font-weight: 300;
 `

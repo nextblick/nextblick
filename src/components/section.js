@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 
 import Container from "./container"
 
-export default ({ align, bg, children, small, full, ...props }) => (
+export default ({ align, bg, children, headline, small, full, ...props }) => (
   <Section
     css={css`
       ${bg === "primary"
@@ -14,6 +14,11 @@ export default ({ align, bg, children, small, full, ...props }) => (
     {...props}
   >
     <Container align={align} small={small} full={full}>
+      <Headline
+        dangerouslySetInnerHTML={{ __html: headline }}
+        data-sal="slide-up"
+        data-sal-duration="1200"
+      />
       {children}
     </Container>
   </Section>
@@ -23,5 +28,18 @@ const Section = styled.section`
   padding: 3rem 0;
   @media screen and (min-width: 768px) {
     padding: 6rem 0;
+  }
+`
+
+const Headline = styled.div`
+  margin-bottom: 2rem;
+  h1,
+  h2,
+  h3 {
+    max-width: 640px;
+    margin-bottom: 1rem;
+  }
+  p {
+    max-width: 960px;
   }
 `

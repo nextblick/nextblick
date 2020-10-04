@@ -2,8 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import DefaultPage from "../../components/template-parts/default-page"
+import FrontPage from "../../components/template-parts/front-page"
 
 export default ({ data }) => {
+  console.log(data)
+  if (data.page.isFrontPage) return <FrontPage data={data} />
   return <DefaultPage data={data} />
 }
 
@@ -13,6 +16,7 @@ export const query = graphql`
       title
       excerpt
       content
+      isFrontPage
       featuredImage {
         node {
           localFile {
@@ -32,6 +36,7 @@ export const query = graphql`
             bgColor
             headline
             columns
+            separator
             items {
               content
             }
@@ -73,13 +78,10 @@ export const query = graphql`
             text
             imagePosition
             image {
+              altText
               localFile {
                 childImageSharp {
-                  fluid(
-                    maxHeight: 600
-                    quality: 90
-                    srcSetBreakpoints: [480, 768, 1280]
-                  ) {
+                  fluid(maxWidth: 768, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -90,6 +92,16 @@ export const query = graphql`
             fieldGroupName
             bgColor
             text
+          }
+          ... on WpPage_Acfdefaultpagefields_Layouts_LogoGallery {
+            fieldGroupName
+            bgColor
+            headline
+            images {
+              localFile {
+                publicURL
+              }
+            }
           }
         }
       }

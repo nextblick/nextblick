@@ -43,6 +43,8 @@ const Layout = ({ children }) => {
               font-size: 3.75rem;
               margin-bottom: 0;
             }
+          }
+          h1, h2 {
             &.small {
               font-size: 1.2rem;
               text-transform: uppercase;
@@ -50,8 +52,9 @@ const Layout = ({ children }) => {
               opacity: 0.8;
             }
           }
-          h2 {
+          h2, h3.large  {
             font-size: 2rem;
+            font-weight: 200;
             margin-bottom: 3rem;
             @media screen and (min-width: 768px) {
               font-size: 3rem;
@@ -64,6 +67,13 @@ const Layout = ({ children }) => {
           }
           p {
             margin-bottom: 1rem;
+          }
+          ul {
+            list-style: none;
+            padding-bottom: 1rem;
+            li {
+              margin-bottom: 1rem;
+            }
           }
           address {
             font-style: normal;

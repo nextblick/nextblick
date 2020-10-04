@@ -5,11 +5,10 @@ import ImageCarousel from "./imageCarousel"
 import Team from "./team"
 import Text from "./text"
 import TextImage from "./textImage"
+import LogoGallery from "./logoGallery"
 
 export default ({ layoutData }) => {
   const layoutType = layoutData.fieldGroupName
-
-  console.log(layoutType)
 
   const Default = () => (
     <div>
@@ -23,6 +22,7 @@ export default ({ layoutData }) => {
     page_Acfdefaultpagefields_Layouts_Team: Team,
     page_Acfdefaultpagefields_Layouts_TextImage: TextImage,
     page_Acfdefaultpagefields_Layouts_Text: Text,
+    page_Acfdefaultpagefields_Layouts_LogoGallery: LogoGallery,
     page_default: Default,
   }
 

@@ -10,6 +10,7 @@ export default ({ bgColor, text, image, imagePosition }) => {
   return (
     <Section
       bg={bgColor}
+      align={imagePosition}
       css={css`
         overflow: hidden;
       `}
@@ -24,7 +25,11 @@ export default ({ bgColor, text, image, imagePosition }) => {
             imagePosition === "right" ? "row" : "row-reverse",
           ]}
         >
-          <Box dangerouslySetInnerHTML={{ __html: text }} maxW="500px" />
+          <Box
+            dangerouslySetInnerHTML={{ __html: text }}
+            w="100%"
+            maxWidth="600px"
+          />
           <Box
             w="100%"
             css={
@@ -41,7 +46,12 @@ export default ({ bgColor, text, image, imagePosition }) => {
                   `
             }
           >
-            {image && <Image fluid={image.localFile.childImageSharp.fluid} />}
+            {image && (
+              <Image
+                fluid={image.localFile.childImageSharp.fluid}
+                alt={image.altText}
+              />
+            )}
           </Box>
         </Flex>
       </div>
