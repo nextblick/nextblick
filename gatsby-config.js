@@ -9,11 +9,12 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `MBM&CO`,
+    title: `NEXTBLICK`,
     description: ``,
     author: `Marvin Bernd`,
   },
   plugins: [
+    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     {

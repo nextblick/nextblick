@@ -7,13 +7,13 @@ import Layouts from "../../layouts"
 
 function DefaultPage({ data }) {
   const { page } = data
-  const { acfDefaultPageFields, excerpt, featuredImage, title } = page
+  const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
 
   const layouts = acfDefaultPageFields.layouts || []
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
         title={title}
         subtitle={acfDefaultPageFields.subtitle}

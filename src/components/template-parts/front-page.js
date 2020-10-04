@@ -11,7 +11,7 @@ import Section from "../section"
 
 function FrontPage({ data }) {
   const { page } = data
-  const { acfDefaultPageFields, excerpt, featuredImage, title } = page
+  const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
 
   const layouts = acfDefaultPageFields.layouts || []
 
@@ -41,7 +41,7 @@ function FrontPage({ data }) {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
         title={title}
         subtitle={acfDefaultPageFields.subtitle}

@@ -5,7 +5,6 @@ import DefaultPage from "../../components/template-parts/default-page"
 import FrontPage from "../../components/template-parts/front-page"
 
 export default ({ data }) => {
-  console.log(data)
   if (data.page.isFrontPage) return <FrontPage data={data} />
   return <DefaultPage data={data} />
 }
@@ -17,6 +16,10 @@ export const query = graphql`
       excerpt
       content
       isFrontPage
+      seo {
+        title
+        metaDesc
+      }
       featuredImage {
         node {
           localFile {
