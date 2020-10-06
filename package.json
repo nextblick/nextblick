@@ -34,6 +34,7 @@
     "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^2.6.35",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.3.7",
     "gatsby-source-wordpress-experimental": "^1.0.7",
     "gatsby-transformer-sharp": "2.5.11",

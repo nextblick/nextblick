@@ -27,7 +27,7 @@ export const query = graphql`
         node {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1920, quality: 90, cropFocus: CENTER) {
+              fluid(maxWidth: 1920, quality: 50, cropFocus: CENTER) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
@@ -54,7 +54,7 @@ export const query = graphql`
             images {
               localFile {
                 childImageSharp {
-                  fluid(maxHeight: 800, quality: 90, cropFocus: CENTER) {
+                  fluid(maxHeight: 800, quality: 50, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
@@ -83,7 +83,7 @@ export const query = graphql`
                     node {
                       localFile {
                         childImageSharp {
-                          fluid(maxWidth: 400, quality: 90, cropFocus: CENTER) {
+                          fluid(maxWidth: 400, quality: 50, cropFocus: CENTER) {
                             ...GatsbyImageSharpFluid_withWebp_tracedSVG
                           }
                         }
@@ -103,7 +103,7 @@ export const query = graphql`
               image {
                 localFile {
                   childImageSharp {
-                    fluid(maxHeight: 800, quality: 90, cropFocus: CENTER) {
+                    fluid(maxHeight: 800, quality: 50, cropFocus: CENTER) {
                       ...GatsbyImageSharpFluid_tracedSVG
                     }
                   }
@@ -120,7 +120,7 @@ export const query = graphql`
               altText
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 768, quality: 90) {
+                  fluid(maxWidth: 768, quality: 50) {
                     ...GatsbyImageSharpFluid
                   }
                 }
