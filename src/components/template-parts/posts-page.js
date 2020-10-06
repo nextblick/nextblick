@@ -12,12 +12,6 @@ import ProjectCarousel from "../projectCarousel"
 import Section from "../section"
 import { Grid } from "@chakra-ui/core"
 
-var decodeHTML = function (html) {
-  var txt = document.createElement("textarea")
-  txt.innerHTML = html
-  return txt.value
-}
-
 function PostsPage({ data }) {
   const { page } = data
   const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
@@ -48,7 +42,7 @@ function PostsPage({ data }) {
 
   return (
     <Layout>
-      <SEO title={decodeHTML(seo.title)} description={seo.metaDesc} />
+      <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
         title={title}
         subtitle={acfDefaultPageFields.subtitle}

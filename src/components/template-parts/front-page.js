@@ -9,12 +9,6 @@ import Layouts from "../../layouts"
 import ProjectCarousel from "../projectCarousel"
 import Section from "../section"
 
-var decodeHTML = function (html) {
-  var txt = document.createElement("textarea")
-  txt.innerHTML = html
-  return txt.value
-}
-
 function FrontPage({ data }) {
   const { page } = data
   const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
@@ -47,7 +41,7 @@ function FrontPage({ data }) {
 
   return (
     <Layout>
-      <SEO title={decodeHTML(seo.title)} description={seo.metaDesc} />
+      <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
         title={title}
         subtitle={acfDefaultPageFields.subtitle}
