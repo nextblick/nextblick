@@ -36,7 +36,7 @@ const Headline = styled.div`
   h1,
   h2,
   h3 {
-    max-width: 640px;
+    max-width: 690px;
     margin-bottom: 1rem;
   }
   p {

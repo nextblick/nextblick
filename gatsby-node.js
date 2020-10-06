@@ -73,41 +73,4 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       })
     })
   )
-
-  // create the homepage
-  const {
-    data: { allWpPost },
-  } = await graphql(/* GraphQL */ `
-    {
-      allWpPost(sort: { fields: modifiedGmt, order: DESC }) {
-        nodes {
-          uri
-          id
-        }
-      }
-    }
-  `)
-
-  const perPage = 10
-  const chunkedContentNodes = chunk(allWpPost.nodes, perPage)
-
-  await Promise.all(
-    chunkedContentNodes.map(async (nodesChunk, index) => {
-      const firstNode = nodesChunk[0]
-      const page = index + 1
-      const offset = perPage * index
-
-      await actions.createPage({
-        component: resolve(`./src/templates/index.js`),
-        path: page === 1 ? `/blog/` : `/blog/${page}/`,
-        context: {
-          firstId: firstNode.id,
-          page: page,
-          offset: offset,
-          totalPages: chunkedContentNodes.length,
-          perPage,
-        },
-      })
-    })
-  )
 }

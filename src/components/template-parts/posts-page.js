@@ -1,5 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 
 import SEO from "../seo"
@@ -8,6 +10,7 @@ import Layout from "../../components/layout"
 import Layouts from "../../layouts"
 import ProjectCarousel from "../projectCarousel"
 import Section from "../section"
+import { Grid } from "@chakra-ui/core"
 
 var decodeHTML = function (html) {
   var txt = document.createElement("textarea")
@@ -15,25 +18,23 @@ var decodeHTML = function (html) {
   return txt.value
 }
 
-function FrontPage({ data }) {
+function PostsPage({ data }) {
   const { page } = data
   const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
 
-  const layouts = acfDefaultPageFields.layouts || []
-
-  const { allWpProject } = useStaticQuery(graphql`
+  const { allWpPost } = useStaticQuery(graphql`
     {
-      allWpProject(sort: { fields: [date] }) {
+      allWpPost(sort: { fields: [date] }) {
         nodes {
           id
           title
           excerpt
-          slug
+          uri
           featuredImage {
             node {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                  fluid(maxWidth: 400, quality: 90, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
@@ -56,27 +57,31 @@ function FrontPage({ data }) {
           featuredImage && featuredImage.node.localFile.childImageSharp.fluid
         }
       />
-      <Section bg="primary" align="right" small="full">
-        <div
-          css={css`
-            position: relative;
-            transform: translateY(-6rem);
-            margin-bottom: -6rem;
-            z-index: 1;
-            @media screen and (min-width: 768px) {
-              transform: translateY(-12rem);
-              margin-bottom: -12rem;
-            }
-          `}
-        >
-          <ProjectCarousel items={allWpProject.nodes} />
-        </div>
+      <Section bg="primary">
+        <Grid templateColumns="repeat(4, 1fr)" gap={10}>
+          {allWpPost.nodes.map((post) => (
+            <div>
+              {post.featuredImage && (
+                <Image
+                  fluid={
+                    post.featuredImage.node.localFile.childImageSharp.fluid
+                  }
+                />
+              )}
+              <Link to={post.uri}>
+                <h3>{post.title}</h3>
+              </Link>
+              <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+            </div>
+          ))}
+        </Grid>
       </Section>
-      {layouts.map((layout, index) => (
-        <Layouts key={index} layoutData={layout} />
-      ))}
     </Layout>
   )
 }
 
-export default FrontPage
+export default PostsPage
+
+const Image = styled(Img)`
+  margin-bottom: 1rem;
+`

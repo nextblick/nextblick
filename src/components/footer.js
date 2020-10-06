@@ -36,7 +36,7 @@ export default () => {
           themeFooterSettings: { acfOptionsFooterFields },
         },
       }) => (
-        <Footer>
+        <Footer id="kontakt">
           <Section
             bg="primary"
             align="right"

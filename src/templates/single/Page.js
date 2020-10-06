@@ -3,9 +3,11 @@ import { graphql } from "gatsby"
 
 import DefaultPage from "../../components/template-parts/default-page"
 import FrontPage from "../../components/template-parts/front-page"
+import PostsPage from "../../components/template-parts/posts-page"
 
 export default ({ data }) => {
   if (data.page.isFrontPage) return <FrontPage data={data} />
+  if (data.page.isPostsPage) return <PostsPage data={data} />
   return <DefaultPage data={data} />
 }
 
@@ -16,6 +18,7 @@ export const query = graphql`
       excerpt
       content
       isFrontPage
+      isPostsPage
       seo {
         title
         metaDesc
@@ -53,6 +56,39 @@ export const query = graphql`
                 childImageSharp {
                   fluid(maxHeight: 800, quality: 90, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid_tracedSVG
+                  }
+                }
+              }
+            }
+          }
+          ... on WpPage_Acfdefaultpagefields_Layouts_PostCarousel {
+            fieldGroupName
+            bgColor
+            headline
+            category {
+              id
+              posts {
+                nodes {
+                  id
+                  title
+                  excerpt
+                  uri
+                  tags {
+                    nodes {
+                      id
+                      name
+                    }
+                  }
+                  featuredImage {
+                    node {
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 400, quality: 90, cropFocus: CENTER) {
+                            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

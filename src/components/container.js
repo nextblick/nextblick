@@ -11,10 +11,15 @@ export default ({ align, children, small, full }) => {
             ? "@media screen and (min-width: 768px) { padding-right: 0; }"
             : null
         }
-          ${full ? "padding-left: 0; padding-right: 0; " : null}
+        ${
+          align === "left"
+            ? "@media screen and (min-width: 768px) { padding-left: 0; }"
+            : null
+        }
+        ${full ? "padding-left: 0; padding-right: 0; " : null}
         ${
           small === "full"
-            ? "@media screen and (max-width: 767px) { padding: 0; }"
+            ? "@media screen and (max-width:s 767px) { padding: 0; }"
             : null
         }
       `}

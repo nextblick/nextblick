@@ -7,7 +7,7 @@ import styled from "@emotion/styled"
 import { normalizePath } from "../utils/get-url-path"
 import Container from "./container"
 
-export default ({ isMenuOpen }) => {
+export default ({ isMenuOpen, setIsMenuOpen }) => {
   const { wp, wpMenu } = useStaticQuery(graphql`
     {
       wp {
@@ -86,7 +86,8 @@ export default ({ isMenuOpen }) => {
                         margin-bottom: 1.2rem;
                       }
                     `}
-                    to={normalizePath(path)}
+                    to={path}
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {menuItem.label}
                   </Link>

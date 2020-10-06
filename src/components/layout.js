@@ -55,6 +55,7 @@ const Layout = ({ children }) => {
           h2, h3.large  {
             font-size: 2rem;
             font-weight: 200;
+            line-height: 1.3;
             margin-bottom: 3rem;
             @media screen and (min-width: 768px) {
               font-size: 3rem;
@@ -124,7 +125,7 @@ const Layout = ({ children }) => {
         isMenuOpen={isMenuOpen}
         handleMenuButtonToggle={handleMenuButtonToggle}
       />
-      <Menu isMenuOpen={isMenuOpen} />
+      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Main>{children}</Main>
       <Footer />
     </Wrapper>

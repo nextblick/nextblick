@@ -4,7 +4,6 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Container from "./container"
-import Logo from "../assets/svg/mbmco-blue-2.inline.svg"
 
 export default ({ isMenuOpen, handleMenuButtonToggle }) => (
   <Header
@@ -12,6 +11,7 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
       isMenuOpen &&
       css`
         color: #000;
+        position: fixed;
       `
     }
   >

@@ -6,6 +6,7 @@ import Team from "./team"
 import Text from "./text"
 import TextImage from "./textImage"
 import LogoGallery from "./logoGallery"
+import PostCarousel from "./postCarousel"
 
 export default ({ layoutData }) => {
   const layoutType = layoutData.fieldGroupName
@@ -23,6 +24,7 @@ export default ({ layoutData }) => {
     page_Acfdefaultpagefields_Layouts_TextImage: TextImage,
     page_Acfdefaultpagefields_Layouts_Text: Text,
     page_Acfdefaultpagefields_Layouts_LogoGallery: LogoGallery,
+    page_Acfdefaultpagefields_Layouts_PostCarousel: PostCarousel,
     page_default: Default,
   }
 

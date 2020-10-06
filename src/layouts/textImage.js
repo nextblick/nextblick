@@ -25,11 +25,7 @@ export default ({ bgColor, text, image, imagePosition }) => {
             imagePosition === "right" ? "row" : "row-reverse",
           ]}
         >
-          <Box
-            dangerouslySetInnerHTML={{ __html: text }}
-            w="100%"
-            maxWidth="600px"
-          />
+          <Box dangerouslySetInnerHTML={{ __html: text }} maxWidth="600px" />
           <Box
             w="100%"
             css={
