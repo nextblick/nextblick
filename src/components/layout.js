@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import PageTransition from "gatsby-plugin-page-transitions"
 import { Global, css } from "@emotion/core"
 import styled from "@emotion/styled"
 
@@ -34,8 +35,9 @@ const Layout = ({ children }) => {
             font-family: "Nunito Sans", sans-serif;
             font-weight: 200;
           }
-          h1, h2.large {
-            font-size: 3.25rem;
+          h1,
+          h2.large {
+            font-size: 2.75rem;
             font-weight: 600;
             line-height: 1.3;
             margin-bottom: 1rem;
@@ -44,15 +46,20 @@ const Layout = ({ children }) => {
               margin-bottom: 0;
             }
           }
-          h1, h2 {
+          h1,
+          h2 {
             &.small {
-              font-size: 1.2rem;
+              font-size: 1rem;
               text-transform: uppercase;
               margin-bottom: 0.5rem;
               opacity: 0.8;
+              @media screen and (min-width: 768px) {
+                font-size: 1.2rem;
+              }
             }
           }
-          h2, h3.large  {
+          h2,
+          h3.large {
             font-size: 2rem;
             font-weight: 200;
             line-height: 1.3;
@@ -96,8 +103,9 @@ const Layout = ({ children }) => {
             transition: all 0.3s ease-in-out;
             position: relative;
             cursor: pointer;
-            &:focus, &:hover {
-              border-color #fff;
+            &:focus,
+            &:hover {
+              border-color: #fff;
               color: #000;
               a {
                 position: relative;
@@ -108,7 +116,7 @@ const Layout = ({ children }) => {
               }
             }
             &::after {
-              content: '';
+              content: "";
               position: absolute;
               left: 0;
               bottom: 0;

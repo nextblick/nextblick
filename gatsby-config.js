@@ -68,6 +68,12 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-page-transitions",
+      options: {
+        transitionTime: 200,
+      },
+    },
+    /* {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
@@ -89,6 +95,6 @@ module.exports = {
         siteSpeedSampleRate: 10,
         cookieDomain: "nextblick.com",
       },
-    },
+    }, */
   ],
 }

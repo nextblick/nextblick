@@ -66,8 +66,9 @@ const MenuButton = styled.div`
   height: 16px;
   position: relative;
   cursor: pointer;
-  &:before, &:after {
-    content '';
+  &:before,
+  &:after {
+    content: "";
     width: 100%;
     height: 4px;
     background-color: #fff;

@@ -42,27 +42,37 @@ export default ({ isMenuOpen, setIsMenuOpen }) => {
       css={
         isMenuOpen
           ? css`
-              opacity: 1;
-              visibility: visible;
-              transition: all 0.3s ease-in-out;
+              transition: transform 0.4s ease-in-out;
+              transform: translateY(0);
             `
           : css`
-              opacity: 0;
-              visibility: hidden;
-              transition: all 0.3s ease-in-out;
+              transition: transform 0.4s ease-in-out;
+              transform: translateY(-100%);
             `
       }
     >
       <Container>
         <Flex flexDirection={["column-reverse", "", "row"]}>
-          <Box w={["100%", "", "50%"]}>
+          <Box
+            w={["100%", "", "50%"]}
+            css={css`
+              opacity: 0;
+              visibility: hidden;
+              transition: opacity 0.4s ease-in-out 0.4s;
+              ${isMenuOpen ? "opacity: 1; visibility: visible" : null}
+            `}
+          >
             <div
               dangerouslySetInnerHTML={{
                 __html: wp.themeMenuSettings.acfOptionsMenuFields.menuContent,
               }}
             />
           </Box>
-          <Box>
+          <Box
+            css={css`
+              margin-bottom: 1rem;
+            `}
+          >
             <Menu>
               {wpMenu.menuItems.nodes.map((menuItem, i) => {
                 if (menuItem.parentId) {
@@ -78,6 +88,10 @@ export default ({ isMenuOpen, setIsMenuOpen }) => {
                       font-size: 2rem;
                       display: block;
                       margin-bottom: 0.6rem;
+                      opacity: 0;
+                      visibility: hidden;
+                      transition: opacity 0.4s ease-in-out ${400 + i * 50}ms;
+                      cursor: pointer;
                       &[aria-current="page"] {
                         font-weight: bold;
                       }
@@ -85,6 +99,7 @@ export default ({ isMenuOpen, setIsMenuOpen }) => {
                         font-size: 3rem;
                         margin-bottom: 1.2rem;
                       }
+                      ${isMenuOpen ? "opacity: 1; visibility: visible" : null}
                     `}
                     to={path}
                     onClick={() => setIsMenuOpen(false)}
@@ -109,7 +124,10 @@ const Wrapper = styled.div`
   right: 0;
   z-index: 10;
   background: #fff;
-  padding: 8rem 0;
+  padding: 6rem 0;
+  @media screen and (min-width: 768px) {
+    padding: 8rem 0;
+  }
   p {
     font-size: 0.9rem;
     margin-bottom: 0;

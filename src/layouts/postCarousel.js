@@ -15,17 +15,15 @@ import { Link } from "gatsby"
 export default ({ bgColor, headline, category }) => {
   var settings = {
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     variableWidth: true,
-
     nextArrow: <HiOutlineArrowNarrowRight />,
     responsive: [
       {
         breakpoint: 767,
         settings: {
           variableWidth: false,
-          centerMode: false,
         },
       },
     ],
@@ -34,7 +32,7 @@ export default ({ bgColor, headline, category }) => {
   console.log(category)
 
   return (
-    <Section bg={bgColor} headline={headline} full>
+    <Section bg={bgColor} headline={headline} align="right" full>
       <div data-sal="slide-up" data-sal-duration="1200">
         <Slider
           css={css`

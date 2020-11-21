@@ -67,7 +67,7 @@ const Content = styled.div`
 
 const Hero = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 600px;
   overflow: hidden;
   position: relative;
   &::before {
@@ -99,6 +99,9 @@ const Image = styled(Img)`
 `
 
 const Text = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 300;
+  @media screen and (min-width: 768px) {
+    font-size: 1.4rem;
+  }
 `
