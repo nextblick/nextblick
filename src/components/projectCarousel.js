@@ -44,7 +44,7 @@ const ProjectCarousel = ({ items, ...props }) => {
       {...settings}
       {...props}
     >
-      {items.map(({ featuredImage, title, id }) => (
+      {items.map(({ featuredImage, title, id, acfProjectFields }) => (
         <ProjectItem key={id}>
           {featuredImage && (
             <Img fluid={featuredImage.node.localFile.childImageSharp.fluid} />
@@ -57,7 +57,7 @@ const ProjectCarousel = ({ items, ...props }) => {
                   margin-bottom: 0;
                 `}
               >
-                Corporate Website for a cloud software company Lorem Ipsum dolor
+                {acfProjectFields.title}
               </h3>
             </Content>
           </Overlay>

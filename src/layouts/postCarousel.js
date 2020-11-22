@@ -23,6 +23,7 @@ export default ({ bgColor, headline, category }) => {
       {
         breakpoint: 767,
         settings: {
+          slidesToShow: 1,
           variableWidth: false,
         },
       },
@@ -32,7 +33,7 @@ export default ({ bgColor, headline, category }) => {
   console.log(category)
 
   return (
-    <Section bg={bgColor} headline={headline} align="right" full>
+    <Section bg={bgColor} headline={headline} align="right">
       <div data-sal="slide-up" data-sal-duration="1200">
         <Slider
           css={css`
@@ -79,9 +80,12 @@ export default ({ bgColor, headline, category }) => {
 
 const PostItem = styled.article`
   display: block;
-  width: 400px !important;
   margin-right: 1.5rem;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 400px !important;
+  }
 `
 
 const Image = styled(Img)`

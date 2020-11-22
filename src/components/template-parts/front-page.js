@@ -34,6 +34,9 @@ function FrontPage({ data }) {
               }
             }
           }
+          acfProjectFields {
+            title
+          }
         }
       }
     }
