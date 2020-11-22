@@ -67,12 +67,6 @@ module.exports = {
         threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
       },
     },
-    {
-      resolve: "gatsby-plugin-page-transitions",
-      options: {
-        transitionTime: 200,
-      },
-    },
     /* {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
