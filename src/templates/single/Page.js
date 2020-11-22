@@ -141,6 +141,7 @@ export const query = graphql`
             bgColor
             headline
             images {
+              altText
               localFile {
                 publicURL
               }
