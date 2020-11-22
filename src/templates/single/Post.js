@@ -17,6 +17,7 @@ export const query = graphql`
       }
       featuredImage {
         node {
+          altText
           localFile {
             childImageSharp {
               fluid(maxWidth: 1920, quality: 90, cropFocus: CENTER) {

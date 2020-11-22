@@ -25,6 +25,7 @@ export const query = graphql`
       }
       featuredImage {
         node {
+          altText
           localFile {
             childImageSharp {
               fluid(maxWidth: 1920, quality: 50, cropFocus: CENTER) {
@@ -52,6 +53,7 @@ export const query = graphql`
             bgColor
             headline
             images {
+              altText
               localFile {
                 childImageSharp {
                   fluid(maxHeight: 800, quality: 50, cropFocus: CENTER) {
@@ -81,6 +83,7 @@ export const query = graphql`
                   }
                   featuredImage {
                     node {
+                      altText
                       localFile {
                         childImageSharp {
                           fluid(maxWidth: 400, quality: 50, cropFocus: CENTER) {
@@ -101,6 +104,7 @@ export const query = graphql`
             items {
               description
               image {
+                altText
                 localFile {
                   childImageSharp {
                     fluid(maxHeight: 800, quality: 50, cropFocus: CENTER) {

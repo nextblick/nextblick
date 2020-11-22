@@ -51,6 +51,7 @@ const PostCarousel = ({ items, ...props }) => {
         <PostItem key={id}>
           {featuredImage && (
             <Image
+              alt={featuredImage.node.altText}
               fluid={featuredImage.node.remoteFile.childImageSharp.fluid}
             />
           )}

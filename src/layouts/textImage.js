@@ -44,8 +44,8 @@ export default ({ bgColor, text, image, imagePosition }) => {
           >
             {image && (
               <Image
-                fluid={image.localFile.childImageSharp.fluid}
                 alt={image.altText}
+                fluid={image.localFile.childImageSharp.fluid}
               />
             )}
           </Box>

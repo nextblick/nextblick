@@ -31,7 +31,10 @@ export default ({ bgColor, headline, items }) => {
             data-sal-duration="1200"
             data-sal-delay={index * 100}
           >
-            <Image fluid={image.localFile.childImageSharp.fluid} />
+            <Image
+              alt={image.altText}
+              fluid={image.localFile.childImageSharp.fluid}
+            />
             <Description dangerouslySetInnerHTML={{ __html: description }} />
           </Box>
         ))}

@@ -58,6 +58,7 @@ export default ({ bgColor, headline, category }) => {
               <PostItem key={id}>
                 {featuredImage && (
                   <Image
+                    alt={featuredImage.node.altText}
                     fluid={featuredImage.node.localFile.childImageSharp.fluid}
                   />
                 )}

@@ -53,9 +53,9 @@ export default ({ bgColor, headline, images }) => {
           `}
           {...settings}
         >
-          {images.map(({ localFile: { childImageSharp } }) => (
+          {images.map(({ altText, localFile: { childImageSharp } }) => (
             <SliderItem>
-              <Img fluid={childImageSharp.fluid} />
+              <Img fluid={childImageSharp.fluid} alt={altText} />
             </SliderItem>
           ))}
         </Slider>

@@ -11,7 +11,7 @@ export default ({ excerpt, image, title, subtitle }) => {
   if (image) {
     return (
       <Hero>
-        <Image fluid={image} />
+        <Image fluid={image} alt={title} />
         <Content>
           <Container>
             <Box maxW="60rem" data-sal="slide-up" data-sal-duration="1200">
