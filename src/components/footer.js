@@ -18,6 +18,7 @@ export default () => {
               acfOptionsFooterFields {
                 footerContent
                 footerImage {
+                  altText
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 1280) {
@@ -63,6 +64,7 @@ export default () => {
                 </div>
               </Flex>
               <Image
+                alt={acfOptionsFooterFields.footerImage.altText}
                 fluid={
                   acfOptionsFooterFields.footerImage.localFile.childImageSharp
                     .fluid

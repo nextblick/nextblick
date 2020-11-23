@@ -12,10 +12,17 @@ module.exports = {
     title: `NEXTBLICK`,
     description: ``,
     author: `Marvin Bernd`,
+    siteUrl: `https://nextblick.com`,
   },
   plugins: [
     `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://nextblick.com`,
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -65,6 +72,12 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/impressum/`, `/datenschutz/`],
       },
     },
     /* {

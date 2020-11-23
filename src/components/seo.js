@@ -14,7 +14,14 @@ const decodeHtmlEntity = function (str) {
   return str.replace(/&raquo;/g, "»")
 }
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({
+  description,
+  lang,
+  meta,
+  metaRobotsNoindex,
+  metaRobotsNofollow,
+  title,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,6 +37,7 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaRobots = metaRobotsNoindex + ", " + metaRobotsNofollow
 
   return (
     <Helmet
@@ -42,6 +50,10 @@ const SEO = ({ description, lang, meta, title }) => {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `robots`,
+          content: metaRobots,
         },
         {
           property: `og:title`,
@@ -77,7 +89,7 @@ const SEO = ({ description, lang, meta, title }) => {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `de`,
   meta: [],
   description: ``,
 }
