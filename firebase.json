@@ -54,6 +54,11 @@
         "source": "/online-shop-losungen",
         "destination": "/online-shop-entwicklung",
         "type": 301
+      },
+      {
+        "source": "/strategie-design",
+        "destination": "/webdesign-agentur",
+        "type": 301
       }
     ]
   }
