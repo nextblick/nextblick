@@ -92,6 +92,7 @@ export default ({ isMenuOpen, setIsMenuOpen }) => {
                       visibility: hidden;
                       transition: opacity 0.4s ease-in-out ${400 + i * 50}ms;
                       cursor: pointer;
+                      color: #000;
                       &[aria-current="page"] {
                         font-weight: bold;
                       }
