@@ -48,6 +48,13 @@
           }
         ]
       }
+    ],
+    "redirects": [
+      {
+        "source": "/online-shop-losungen",
+        "destination": "/online-shop-entwicklung",
+        "type": 301
+      }
     ]
   }
 }

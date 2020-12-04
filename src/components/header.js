@@ -19,7 +19,11 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
       <Flex>
         <div>
           <Link to="/">
-            <strong>NEXT</strong>BLICK
+            <Logo>
+              <Label>
+                <strong>NEXT</strong>BLICK
+              </Label>
+            </Logo>
           </Link>
         </div>
         <div>
@@ -82,4 +86,12 @@ const MenuButton = styled.div`
   &:after {
     top: 12px;
   }
+`
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const Label = styled.span`
+  margin-right: 10px;
 `
