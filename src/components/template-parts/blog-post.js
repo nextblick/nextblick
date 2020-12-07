@@ -35,6 +35,8 @@ function BlogPost({ data }) {
           maxWidth="960px"
           margin="0 auto"
           dangerouslySetInnerHTML={{ __html: content }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
         />
       </Section>
     </Layout>

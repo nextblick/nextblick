@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import favicon from "./../assets/svg/nextblick-favicon.svg"
 
 const decodeHtmlEntity = function (str) {
   return str.replace(/&raquo;/g, "»")
@@ -84,7 +85,9 @@ const SEO = ({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="icon" type="image/svg+xml" href={favicon} sizes="16x16" />
+    </Helmet>
   )
 }
 

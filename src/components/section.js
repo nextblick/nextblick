@@ -14,11 +14,13 @@ export default ({ align, bg, children, headline, small, full, ...props }) => (
     {...props}
   >
     <Container align={align} small={small} full={full}>
-      <Headline
-        dangerouslySetInnerHTML={{ __html: headline }}
-        data-sal="slide-up"
-        data-sal-duration="1200"
-      />
+      {headline && (
+        <Headline
+          dangerouslySetInnerHTML={{ __html: headline }}
+          data-sal="slide-up"
+          data-sal-duration="1200"
+        />
+      )}
       {children}
     </Container>
   </Section>

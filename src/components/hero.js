@@ -14,7 +14,7 @@ export default ({ excerpt, image, title, subtitle }) => {
         <Image fluid={image} alt={title} />
         <Content>
           <Container>
-            <Box maxW="60rem" data-sal="slide-up" data-sal-duration="1200">
+            <Box maxW="62rem" data-sal="slide-up" data-sal-duration="1200">
               {subtitle && (
                 <div>
                   <h1 className="small">{title}</h1>
