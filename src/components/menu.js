@@ -63,6 +63,9 @@ export default ({ isMenuOpen, setIsMenuOpen }) => {
             `}
           >
             <div
+              css={css`
+                color: #000 !important;
+              `}
               dangerouslySetInnerHTML={{
                 __html: wp.themeMenuSettings.acfOptionsMenuFields.menuContent,
               }}
