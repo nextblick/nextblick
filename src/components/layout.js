@@ -36,39 +36,39 @@ const Layout = ({ children }) => {
           }
           h1,
           h2.large {
-            font-size: 2.75rem;
+            font-size: 2.75rem !important;
             font-weight: 600;
             line-height: 1.3;
             margin-bottom: 1rem;
             @media screen and (min-width: 768px) {
-              font-size: 3.75rem;
+              font-size: 3.75rem !important;
               margin-bottom: 0;
             }
           }
           h1,
           h2 {
             &.small {
-              font-size: 1rem;
+              font-size: 1rem !important;
               text-transform: uppercase;
               margin-bottom: 0.5rem;
               opacity: 0.8;
               @media screen and (min-width: 768px) {
-                font-size: 1.2rem;
+                font-size: 1.2rem !important;
               }
             }
           }
           h2,
           h3.large {
-            font-size: 2rem;
+            font-size: 2rem !important;
             font-weight: 200;
             line-height: 1.3;
             margin-bottom: 3rem;
             @media screen and (min-width: 768px) {
-              font-size: 3rem;
+              font-size: 3rem !important;
             }
           }
           h3 {
-            font-size: 1.5rem;
+            font-size: 1.5rem !important;
             font-weight: 600;
             margin-bottom: 1rem;
           }
