@@ -18,6 +18,7 @@ function DefaultPage({ data }) {
         description={seo.metaDesc}
         metaRobotsNoindex={seo.metaRobotsNoindex}
         metaRobotsNofollow={seo.metaRobotsNofollow}
+        metaImage={featuredImage.node.localFile.publicURL}
       />
       <Hero
         title={title}

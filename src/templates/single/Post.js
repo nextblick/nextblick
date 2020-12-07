@@ -24,6 +24,7 @@ export const query = graphql`
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
+            publicURL
           }
         }
       }

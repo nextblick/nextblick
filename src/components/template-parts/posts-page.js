@@ -32,6 +32,7 @@ function PostsPage({ data }) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
+                publicURL
               }
             }
           }
@@ -47,6 +48,7 @@ function PostsPage({ data }) {
         description={seo.metaDesc}
         metaRobotsNoindex={seo.metaRobotsNoindex}
         metaRobotsNofollow={seo.metaRobotsNofollow}
+        metaImage={featuredImage.node.localFile.publicURL}
       />
       <Hero
         title={title}

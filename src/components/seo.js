@@ -22,6 +22,7 @@ const SEO = ({
   meta,
   metaRobotsNoindex,
   metaRobotsNofollow,
+  metaImage,
   title,
 }) => {
   const { site } = useStaticQuery(
@@ -64,6 +65,10 @@ const SEO = ({
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: metaImage,
         },
         {
           property: `og:type`,
