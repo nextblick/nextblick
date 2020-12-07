@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import favicon from "./../assets/svg/nextblick-favicon.svg"
+import favicon from "./../assets/images/nextblick-favicon.svg"
 
 const decodeHtmlEntity = function (str) {
   return str.replace(/&raquo;/g, "»")
