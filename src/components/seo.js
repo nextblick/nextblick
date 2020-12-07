@@ -25,7 +25,7 @@ const SEO = ({
   metaImage,
   title,
 }) => {
-  const { site } = useStaticQuery(
+  const { site, wp } = useStaticQuery(
     graphql`
       query {
         site {
@@ -35,12 +35,24 @@ const SEO = ({
             author
           }
         }
+        wp {
+          seo {
+            openGraph {
+              defaultImage {
+                localFile {
+                  publicURL
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
 
   const metaDescription = description || site.siteMetadata.description
   const metaRobots = metaRobotsNoindex + ", " + metaRobotsNofollow
+  const ogImage = metaImage || wp.seo.openGraph.defaultImage.localFile.publicURL
 
   return (
     <Helmet
@@ -68,7 +80,7 @@ const SEO = ({
         },
         {
           property: `og:image`,
-          content: metaImage,
+          content: ogImage,
         },
         {
           property: `og:type`,
