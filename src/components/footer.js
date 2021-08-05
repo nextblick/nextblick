@@ -79,6 +79,9 @@ export default () => {
 }
 
 const Footer = styled.footer`
+  h2 {
+    font-weight: 600;
+  }
   .contact {
     margin: 3rem 0;
     font-size: 1.8rem;

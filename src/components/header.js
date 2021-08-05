@@ -4,6 +4,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Container from "./container"
+import Logo from '../assets/images/nextblick.inline.svg'
 
 export default ({ isMenuOpen, handleMenuButtonToggle }) => (
   <Header
@@ -19,11 +20,9 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
       <Flex>
         <div>
           <Link to="/">
-            <Logo>
-              <Label>
-                <strong>NEXT</strong>BLICK
-              </Label>
-            </Logo>
+            <LogoWrapper>
+                <Logo />
+            </LogoWrapper>
           </Link>
         </div>
         <div>
@@ -87,7 +86,7 @@ const MenuButton = styled.div`
     top: 12px;
   }
 `
-const Logo = styled.div`
+const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
 `
