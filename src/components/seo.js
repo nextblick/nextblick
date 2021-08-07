@@ -10,7 +10,9 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import favicon from "./../assets/images/nextblick-favicon.svg"
+import favicon16 from "../assets/images/favicon-16x16.png"
+import favicon32 from "../assets/images/favicon-32x32.png"
+import faviconIco from "../assets/images/favicon.ico"
 
 const decodeHtmlEntity = function (str) {
   return str.replace(/&raquo;/g, "»")
@@ -104,7 +106,9 @@ const SEO = ({
         },
       ].concat(meta)}
     >
-      <link rel="icon" type="image/svg+xml" href={favicon} sizes="16x16" />
+      <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
+      <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
+      <link rel="icon" type="image/png" href={faviconIco} />
     </Helmet>
   )
 }
