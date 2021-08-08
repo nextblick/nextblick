@@ -11,6 +11,8 @@ function DefaultPage({ data }) {
 
   const layouts = acfDefaultPageFields.layouts || []
 
+  console.log(seo.metaRobotsNoindex)
+
   return (
     <Layout>
       <SEO

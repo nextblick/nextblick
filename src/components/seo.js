@@ -59,49 +59,17 @@ const SEO = ({
         lang,
       }}
       title={decodeHtmlEntity(title)}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: `robots`,
-          content: metaRobots,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:image`,
-          content: ogImage,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     >
+      <meta name="description" content={metaDescription} />
+      <meta name="robots" content={metaRobots} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:type" content="website" />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:creator" content={site.siteMetadata.author} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={metaDescription} />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
