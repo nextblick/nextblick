@@ -26,3 +26,14 @@
 h1 {
   font-size: 3rem;
 }
+
+.wp-block-button__link {
+  background-color: #040c26;
+  color: #fff;
+  border: 2px solid #040c26;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
