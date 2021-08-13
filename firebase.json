@@ -61,8 +61,13 @@
         "type": 301
       },
       {
+        "source": "/webdesign-agentur",
+        "destination": "/webdesign-agentur-frankfurt",
+        "type": 301
+      }
+      {
         "source": "/strategie-design",
-        "destination": "/webdesign-agentur",
+        "destination": "/webdesign-agentur-frankfurt",
         "type": 301
       }
     ]
