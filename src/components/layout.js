@@ -6,8 +6,6 @@ import Header from "./header"
 import Footer from "./footer"
 import Menu from "./menu"
 
-import "../assets/style.css"
-
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -62,7 +60,7 @@ const Layout = ({ children }) => {
             font-size: 2rem !important;
             font-weight: 200;
             line-height: 1.3;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             @media screen and (min-width: 768px) {
               font-size: 3rem !important;
             }
@@ -71,9 +69,15 @@ const Layout = ({ children }) => {
             font-size: 1.5rem !important;
             font-weight: 600;
             margin-bottom: 1rem;
+            &.large {
+              margin-bottom: 3rem;
+            }
           }
           p {
             margin-bottom: 1rem;
+            &:last-of-type {
+              margin-bottom: 2rem;
+            }
           }
           ul {
             list-style: none;
@@ -94,6 +98,7 @@ const Layout = ({ children }) => {
             margin-bottom: 2rem;
           }
           .button {
+            display: inline-block;
             a {
               border: 2px solid #818592;
               cursor: pointer;
@@ -124,6 +129,16 @@ const Layout = ({ children }) => {
                 z-index: -1;
               }
             }
+          }
+          .wp-block-button__link {
+            background-color: #040c26;
+            color: #fff;
+            border: 2px solid #040c26;
+            cursor: pointer;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
           }
         `}
       />
