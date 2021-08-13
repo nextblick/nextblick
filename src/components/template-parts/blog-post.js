@@ -13,8 +13,6 @@ function BlogPost({ data }) {
   const { nextPage, previousPage, page } = data
   const { title, content, excerpt, featuredImage, seo } = page
 
-  console.log(data)
-
   return (
     <Layout>
       <SEO
@@ -36,8 +34,6 @@ function BlogPost({ data }) {
           maxWidth="960px"
           margin="0 auto"
           dangerouslySetInnerHTML={{ __html: content }}
-          data-sal="slide-up"
-          data-sal-duration="1200"
         />
       </Section>
     </Layout>

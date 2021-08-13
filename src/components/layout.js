@@ -75,9 +75,6 @@ const Layout = ({ children }) => {
           }
           p {
             margin-bottom: 1rem;
-            &:last-of-type {
-              margin-bottom: 2rem;
-            }
           }
           ul {
             list-style: none;
