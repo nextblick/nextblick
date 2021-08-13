@@ -52,12 +52,12 @@
     "redirects": [
       {
         "source": "/online-shop-entwicklung",
-        "destination": "/e-commerce-agentur",
+        "destination": "/e-commerce-agentur-frankfurt",
         "type": 301
       },
       {
         "source": "/online-shop-losungen",
-        "destination": "/e-commerce-agentur",
+        "destination": "/e-commerce-agentur-frankfurt",
         "type": 301
       },
       {
