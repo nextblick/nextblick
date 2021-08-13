@@ -51,8 +51,13 @@
     ],
     "redirects": [
       {
+        "source": "/online-shop-entwicklung",
+        "destination": "/e-commerce-agentur",
+        "type": 301
+      },
+      {
         "source": "/online-shop-losungen",
-        "destination": "/online-shop-entwicklung",
+        "destination": "/e-commerce-agentur",
         "type": 301
       },
       {
