@@ -14,6 +14,8 @@ export const query = graphql`
       seo {
         title
         metaDesc
+        metaRobotsNofollow
+        metaRobotsNoindex
       }
       featuredImage {
         node {
