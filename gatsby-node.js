@@ -17,29 +17,36 @@ const getTemplates = () => {
   return glob.sync(`./src/templates/**/*.js`, { cwd: sitePath })
 }
 
-//
-// @todo move this to gatsby-theme-wordpress
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const templates = getTemplates()
 
-  const {
-    data: {
-      allWpContentNode: { nodes: contentNodes },
-    },
-  } = await graphql(/* GraphQL */ `
-    query ALL_CONTENT_NODES {
-      allWpContentNode(
-        sort: { fields: modifiedGmt, order: DESC }
-        filter: { nodeType: { ne: "MediaItem" } }
-      ) {
+  const result = await graphql(`
+    {
+      allWpPage {
         nodes {
+          id
           nodeType
           uri
+        }
+      }
+      allWpPost {
+        nodes {
           id
+          nodeType
+          uri
         }
       }
     }
   `)
+
+  const {
+    allWpPage: { nodes: allWpPageNodes },
+  } = result.data
+  const {
+    allWpPost: { nodes: allWpPostNodes },
+  } = result.data
+
+  const data = allWpPageNodes.concat(allWpPostNodes)
 
   const contentTypeTemplateDirectory = `./src/templates/single/`
   const contentTypeTemplates = templates.filter((path) =>
@@ -47,12 +54,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   )
 
   await Promise.all(
-    contentNodes.map(async (node, i) => {
+    data.map(async (node, i) => {
       const { nodeType, uri, id } = node
-      // this is a super super basic template hierarchy
-      // this doesn't reflect what our hierarchy will look like.
-      // this is for testing/demo purposes
       const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`
+
+      console.log(nodeType, uri, id)
 
       const contentTypeTemplate = contentTypeTemplates.find(
         (path) => path === templatePath
@@ -67,8 +73,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         path: uri,
         context: {
           id,
-          nextPage: (contentNodes[i + 1] || {}).id,
-          previousPage: (contentNodes[i - 1] || {}).id,
+          nextPage: (data[i + 1] || {}).id,
+          previousPage: (data[i - 1] || {}).id,
         },
       })
     })

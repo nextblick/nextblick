@@ -39,7 +39,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.3.7",
-    "gatsby-source-wordpress-experimental": "^1.0.7",
+    "gatsby-source-wordpress": "^5.12.1",
     "gatsby-transformer-sharp": "2.5.11",
     "gatsby-wordpress-experimental-inline-images": "^0.0.3",
     "preact": "^10.5.7",
