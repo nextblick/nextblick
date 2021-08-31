@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { css } from "@emotion/core"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 
 import SEO from "../seo"
 import Hero from "../hero"

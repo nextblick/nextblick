@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Link } from "gatsby"
-import { Box, Heading } from "@chakra-ui/core"
+import { Box, Heading } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import Layout from "../../components/layout"
 import { normalizePath } from "../../utils/get-url-path"

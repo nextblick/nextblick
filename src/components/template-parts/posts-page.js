@@ -2,7 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 
 import SEO from "../seo"
 import Hero from "../hero"
@@ -10,7 +11,7 @@ import Layout from "../../components/layout"
 import Layouts from "../../layouts"
 import ProjectCarousel from "../projectCarousel"
 import Section from "../section"
-import { Grid } from "@chakra-ui/core"
+import { Grid } from "@chakra-ui/react"
 
 function PostsPage({ data }) {
   const { page } = data

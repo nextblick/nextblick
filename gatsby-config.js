@@ -58,7 +58,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-chakra-ui`,
+    `@chakra-ui/gatsby-plugin`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
@@ -77,7 +77,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/impressum/`, `/datenschutz/`],
+        excludes: [`/impressum/`, `/datenschutz/`],
       },
     },
   ],

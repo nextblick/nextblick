@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { Box, Grid } from "@chakra-ui/core"
+import { Box, Grid } from "@chakra-ui/react"
 import styled from "@emotion/styled"
 
 import Section from "../components/section"

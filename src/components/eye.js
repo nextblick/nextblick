@@ -1,5 +1,6 @@
 import React from "react"
-import { Global, css } from "@emotion/core"
+/** @jsx jsx */
+import { Global, css, jsx } from "@emotion/react"
 
 const Eye = () => {
   return (
