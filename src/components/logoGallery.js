@@ -1,6 +1,7 @@
 import React from "react"
-import { Grid, Flex } from "@chakra-ui/core"
-import { css } from "@emotion/core"
+import { Grid, Flex } from "@chakra-ui/react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 
 const LogoGallery = ({ items, sal, salDuration, salDelay }) => {
   return (

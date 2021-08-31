@@ -1,7 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
-import { Box } from "@chakra-ui/core"
-import { css } from "@emotion/core"
+import { Box } from "@chakra-ui/react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import Container from "./container"

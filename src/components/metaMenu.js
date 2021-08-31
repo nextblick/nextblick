@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { Menu } from "@chakra-ui/core"
-import { css } from "@emotion/core"
+import { Menu } from "@chakra-ui/react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 
 import { normalizePath } from "../utils/get-url-path"
 

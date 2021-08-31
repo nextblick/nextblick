@@ -32,7 +32,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-wordpress-experimental`,
+      resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL,
         verbose: true,
@@ -58,7 +58,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-chakra-ui`,
+    `@chakra-ui/gatsby-plugin`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
@@ -77,7 +77,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/impressum/`, `/datenschutz/`],
+        excludes: [`/impressum/`, `/datenschutz/`],
       },
     },
   ],

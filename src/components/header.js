@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import Container from "./container"
-import Logo from '../assets/images/nextblick.inline.svg'
+import Logo from "../assets/images/nextblick.inline.svg"
 
 export default ({ isMenuOpen, handleMenuButtonToggle }) => (
   <Header
@@ -21,7 +22,7 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
         <div>
           <Link to="/">
             <LogoWrapper>
-                <Logo />
+              <Logo />
             </LogoWrapper>
           </Link>
         </div>

@@ -1,8 +1,9 @@
 import React from "react"
 import Img from "gatsby-image"
-import { css } from "@emotion/core"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
-import { Box, Flex } from "@chakra-ui/core"
+import { Box, Flex } from "@chakra-ui/react"
 
 import Section from "../components/section"
 

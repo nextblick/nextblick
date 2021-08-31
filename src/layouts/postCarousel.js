@@ -1,8 +1,9 @@
 import React from "react"
 import Slider from "react-slick"
-import { Box } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/react"
 import Img from "gatsby-image"
-import { css } from "@emotion/core"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
 import { HiOutlineArrowNarrowRight } from "react-icons/hi"
 

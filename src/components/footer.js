@@ -1,8 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Flex } from "@chakra-ui/core"
-import { css } from "@emotion/core"
+import { Flex } from "@chakra-ui/react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import Section from "../components/section"
