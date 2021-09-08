@@ -5,9 +5,11 @@ import DefaultPage from "../../components/template-parts/default-page"
 import FrontPage from "../../components/template-parts/front-page"
 import PostsPage from "../../components/template-parts/posts-page"
 
-export default ({ data }) => {
-  if (data.page.isFrontPage) return <FrontPage data={data} />
-  if (data.page.isPostsPage) return <PostsPage data={data} />
+export default ({ data, location }) => {
+  if (data.page.isFrontPage)
+    return <FrontPage data={data} location={location} />
+  if (data.page.isPostsPage)
+    return <PostsPage data={data} location={location} />
   return <DefaultPage data={data} />
 }
 
