@@ -107,15 +107,18 @@ function PostsPage({ data, location }) {
           handleCategoryToggle={handleCategoryToggle}
         />
         <Grid templateColumns={"repeat(auto-fit, minmax(300px, 1fr))"} gap={10}>
-          {filteredPosts.map(({ featuredImage, title, id, tags, excerpt }) => (
-            <PostItem
-              featuredImage={featuredImage}
-              title={title}
-              tags={tags}
-              excerpt={excerpt}
-              key={id}
-            />
-          ))}
+          {filteredPosts.map(
+            ({ featuredImage, title, id, tags, excerpt, uri }) => (
+              <PostItem
+                featuredImage={featuredImage}
+                title={title}
+                tags={tags}
+                excerpt={excerpt}
+                uri={uri}
+                key={id}
+              />
+            )
+          )}
         </Grid>
       </Section>
     </Layout>

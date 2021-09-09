@@ -58,19 +58,22 @@ export default ({ bgColor, headline, category }) => {
             ({ featuredImage, title, id, tags, uri }) => (
               <PostItem key={id}>
                 {featuredImage && (
-                  <Image
-                    alt={featuredImage.node.altText}
-                    fluid={featuredImage.node.localFile.childImageSharp.fluid}
-                  />
+                  <Link to={uri}>
+                    <Image
+                      alt={featuredImage.node.altText}
+                      fluid={featuredImage.node.localFile.childImageSharp.fluid}
+                    />
+                  </Link>
                 )}
                 <div>
                   {tags.nodes.map((tag) => (
                     <Tag>{tag.name}</Tag>
                   ))}
                 </div>
-                <Link to={uri}>
-                  <h3>{title}</h3>
-                </Link>
+
+                <h3>
+                  <Link to={uri}>{title}</Link>
+                </h3>
               </PostItem>
             )
           )}
