@@ -1,39 +1,61 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react"
 
 import SEO from "../seo"
 import Hero from "../hero"
 import Layout from "../../components/layout"
-import Layouts from "../../layouts"
-import ProjectCarousel from "../projectCarousel"
 import Section from "../section"
 import { Grid } from "@chakra-ui/react"
+import { PostItem } from "../postItem"
+import { getJsonFromUrl } from "../../utils/get-json-from-url"
+import { PostsFilter } from "../postsFilter"
 
-function PostsPage({ data }) {
+function PostsPage({ data, location }) {
   const { page } = data
   const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
+  const [activeCategory, setActiveCategory] = useState("")
 
-  const { allWpPost } = useStaticQuery(graphql`
+  const [filteredPosts, setFilteredPosts] = useState([])
+
+  const { allWpCategory, allWpPost } = useStaticQuery(graphql`
     {
+      allWpCategory {
+        nodes {
+          id
+          name
+          slug
+        }
+      }
       allWpPost(sort: { fields: [date] }) {
         nodes {
           id
           title
           excerpt
           uri
+          categories {
+            nodes {
+              id
+              name
+              slug
+            }
+          }
+          tags {
+            nodes {
+              id
+              name
+            }
+          }
           featuredImage {
             node {
+              altText
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400, quality: 90, cropFocus: CENTER) {
+                  fluid(maxWidth: 400, quality: 50, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
-                publicURL
               }
             }
           }
@@ -41,6 +63,25 @@ function PostsPage({ data }) {
       }
     }
   `)
+
+  useEffect(() => {
+    const params = getJsonFromUrl(location.search)
+    const filteredAllWpPost = allWpPost.nodes.filter(({ categories }) => {
+      if (params.category) {
+        categories = categories.nodes.map((c) => c.slug)
+        setActiveCategory(params.category)
+        return categories.includes(params.category)
+      }
+
+      setActiveCategory(categories.nodes[0].slug)
+      return true
+    })
+    setFilteredPosts(filteredAllWpPost)
+  }, [allWpPost, location])
+
+  const handleCategoryToggle = (slug) => {
+    setActiveCategory(slug)
+  }
 
   return (
     <Layout>
@@ -60,21 +101,20 @@ function PostsPage({ data }) {
         }
       />
       <Section bg="primary">
-        <Grid templateColumns="repeat(4, 1fr)" gap={10}>
-          {allWpPost.nodes.map((post) => (
-            <div>
-              {post.featuredImage && (
-                <Image
-                  fluid={
-                    post.featuredImage.node.localFile.childImageSharp.fluid
-                  }
-                />
-              )}
-              <Link to={post.uri}>
-                <h3>{post.title}</h3>
-              </Link>
-              <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-            </div>
+        <PostsFilter
+          categories={allWpCategory.nodes}
+          activeCategory={activeCategory}
+          handleCategoryToggle={handleCategoryToggle}
+        />
+        <Grid templateColumns={"repeat(auto-fit, minmax(300px, 1fr))"} gap={10}>
+          {filteredPosts.map(({ featuredImage, title, id, tags, excerpt }) => (
+            <PostItem
+              featuredImage={featuredImage}
+              title={title}
+              tags={tags}
+              excerpt={excerpt}
+              key={id}
+            />
           ))}
         </Grid>
       </Section>
