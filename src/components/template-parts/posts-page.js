@@ -10,10 +10,12 @@ import Section from "../section"
 import { Grid } from "@chakra-ui/react"
 import { PostItem } from "../postItem"
 import { getJsonFromUrl } from "../../utils/get-json-from-url"
+import { PostsFilter } from "../postsFilter"
 
 function PostsPage({ data, location }) {
   const { page } = data
   const { acfDefaultPageFields, excerpt, featuredImage, title, seo } = page
+  const [activeCategory, setActiveCategory] = useState("")
 
   const [filteredPosts, setFilteredPosts] = useState([])
 
@@ -67,13 +69,19 @@ function PostsPage({ data, location }) {
     const filteredAllWpPost = allWpPost.nodes.filter(({ categories }) => {
       if (params.category) {
         categories = categories.nodes.map((c) => c.slug)
+        setActiveCategory(params.category)
         return categories.includes(params.category)
       }
 
+      setActiveCategory(categories.nodes[0].slug)
       return true
     })
     setFilteredPosts(filteredAllWpPost)
   }, [allWpPost, location])
+
+  const handleCategoryToggle = (slug) => {
+    setActiveCategory(slug)
+  }
 
   return (
     <Layout>
@@ -92,14 +100,12 @@ function PostsPage({ data, location }) {
           featuredImage && featuredImage.node.localFile.childImageSharp.fluid
         }
       />
-      <Section bg="primary" id="a">
-        <ul>
-          {allWpCategory.nodes.map(({ name, slug }) => (
-            <li>
-              <a href={`?category=${slug}`}>{name}</a>
-            </li>
-          ))}
-        </ul>
+      <Section bg="primary">
+        <PostsFilter
+          categories={allWpCategory.nodes}
+          activeCategory={activeCategory}
+          handleCategoryToggle={handleCategoryToggle}
+        />
         <Grid templateColumns={"repeat(auto-fit, minmax(300px, 1fr))"} gap={10}>
           {filteredPosts.map(({ featuredImage, title, id, tags, excerpt }) => (
             <PostItem
