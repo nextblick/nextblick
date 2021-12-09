@@ -28,7 +28,7 @@ function PostsPage({ data, location }) {
           slug
         }
       }
-      allWpPost(sort: { fields: [date] }) {
+      allWpPost {
         nodes {
           id
           title

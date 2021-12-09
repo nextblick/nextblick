@@ -11,7 +11,7 @@ import Section from "../components/section"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 
 export default ({ bgColor, headline, category }) => {
   var settings = {
@@ -54,7 +54,7 @@ export default ({ bgColor, headline, category }) => {
           `}
           {...settings}
         >
-          {category.posts.nodes.map(
+          {category.posts.nodes.slice(0, 12).map(
             ({ featuredImage, title, id, tags, uri }) => (
               <PostItem key={id}>
                 {featuredImage && (
@@ -66,7 +66,7 @@ export default ({ bgColor, headline, category }) => {
                   </Link>
                 )}
                 <div>
-                  {tags.nodes.map((tag) => (
+                  {tags.nodes.slice(0, 2).map((tag) => (
                     <Tag>{tag.name}</Tag>
                   ))}
                 </div>
@@ -105,3 +105,4 @@ const Tag = styled.span`
     padding-left: 0.3rem;
   }
 `
+
