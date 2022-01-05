@@ -138,6 +138,11 @@ const Layout = ({ children }) => {
             font-weight: 600;
             text-transform: uppercase;
           }
+          @media screen and (max-width: 767px) {
+            #awwwards {
+              display: none;
+            }
+          }
         `}
       />
       <Header

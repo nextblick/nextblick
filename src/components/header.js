@@ -3,6 +3,10 @@ import { Link } from "gatsby"
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react"
 import styled from "@emotion/styled"
+import { Button, ButtonGroup } from "@chakra-ui/react"
+import { EmailIcon } from "@chakra-ui/icons"
+
+import colors from "../config/colors"
 
 import Container from "./container"
 import Logo from "../assets/images/nextblick.inline.svg"
@@ -26,7 +30,10 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
             </LogoWrapper>
           </Link>
         </div>
-        <div>
+        <StyledButtonGroup spacing="12">
+          {/* <StyledButton leftIcon={<EmailIcon />}>
+            <Link to="/blog">Projektanfrage</Link>
+          </StyledButton> */}
           <MenuButton
             css={
               isMenuOpen &&
@@ -47,7 +54,7 @@ export default ({ isMenuOpen, handleMenuButtonToggle }) => (
             }
             onClick={handleMenuButtonToggle}
           />
-        </div>
+        </StyledButtonGroup>
       </Flex>
     </Container>
   </Header>
@@ -94,4 +101,20 @@ const LogoWrapper = styled.div`
 
 const Label = styled.span`
   margin-right: 10px;
+`
+
+const StyledButtonGroup = styled(ButtonGroup)`
+  align-items: center;
+`
+
+const StyledButton = styled(Button)`
+  background-color: ${colors.primary};
+  border-radius: 0;
+  text-transform: uppercase;
+  height: var(--chakra-sizes-9);
+  font-size: 0.7rem;
+  display: none;
+  @media screen and (min-width: 500px) {
+    display: inline-block;
+  }
 `
