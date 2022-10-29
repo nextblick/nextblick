@@ -51,6 +51,11 @@
     ],
     "redirects": [
       {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap-index.xml",
+        "type": 301
+      },
+      {
         "source": "/online-shop-entwicklung",
         "destination": "/e-commerce-agentur-frankfurt",
         "type": 301
