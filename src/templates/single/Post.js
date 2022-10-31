@@ -10,6 +10,7 @@ export const query = graphql`
     page: wpPost(id: { eq: $id }) {
       title
       content
+      date
       excerpt
       seo {
         title

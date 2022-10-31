@@ -11,7 +11,10 @@ import Section from "../section"
 
 function BlogPost({ data }) {
   const { nextPage, previousPage, page } = data
-  const { title, content, excerpt, featuredImage, seo } = page
+  const { title, content, date, excerpt, featuredImage, seo } = page
+
+  const dateObj = new Date(date)
+  const formattedDate = dateObj.toLocaleDateString("de-DE")
 
   return (
     <Layout>
@@ -50,6 +53,9 @@ function BlogPost({ data }) {
         </a>
       </div>
       <Section>
+        <Box maxWidth="960px" margin="0 auto">
+          <time datetime={date}>{formattedDate}</time>
+        </Box>
         <Box
           maxWidth="960px"
           margin="0 auto"
